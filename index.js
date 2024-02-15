@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/healthcheck', (req, res) => {
-    res.send('healthcheck ok');
+    res.send('changing this endpoint to check the health of the app');
 })
 
 let server = app.listen(8080, function () {
