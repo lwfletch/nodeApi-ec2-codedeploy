@@ -11,7 +11,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/healthcheck', (req, res) => {
-    res.send('healthcheck by Trey');
+    res.send('healthcheck is fine');
+})
+
+app.get('/githubactions', (req, res) => {
+    res.send('this is my new endpoint automatically deployed');
 })
 
 let server = app.listen(8080, function () {
