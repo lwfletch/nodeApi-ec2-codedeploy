@@ -16,5 +16,4 @@ jobs:
             FIRST_NAME: ${{ secrets.FIRST_NAME }}
             LAST_NAME: ${{ secrets.LAST_NAME }}
         run: |
-          echo $FIRST_NAME
-          echo $LAST_NAME
+          echo "Hey ${{ secrets.FIRST_NAME}} ${{ secrets.LAST_NAME}}"
