@@ -17,7 +17,5 @@ jobs:
             PROJECT_NAME: nodeApi-ec2-codedeploy
             BRANCH: main
         run: |
-          echo $PRIVATE_KEY > private_key.pem
-          chmod 600 private_key.pem
-          scp -i private_key.pem -r ./* ec2-user@ec2-34-226-218-250.compute-1.amazonaws.com
-          ssh -i "private_key.pem" ec2-user@ec2-34-226-218-250.compute-1.amazonaws.com
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@ec2-34-226-218-250.compute-1.amazonaws.com
