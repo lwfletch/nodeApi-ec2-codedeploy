@@ -13,18 +13,8 @@ jobs:
       - uses: actions/checkout@v4 
       - name: Build & Deploy
         env:
-            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            HOSTNAME: ${{secrets.SSH_HOST}}
-            USER_NAME: ${{secrets.USER_NAME}}
-            PROJECT_NAME: nodeApi-ec2-codedeploy
-            BRANCH: main
+            FIRST_NAME: ${{ secrets.FIRST_NAME }}
+            LAST_NAME: ${{ secrets.LAST_NAME }}
         run: |
-          echo $PRIVATE_KEY > private_key.pem
-          chmod 600 private_key.pem
-          scp -i private_key.pem -r ./* $USER_NAME@$HOSTNAME
-          ssh -i private_key.pem $USER_NAME@$HOSTNAME
-          cd ./$PROJECT_NAME &&
-          git checkout $BRANCH &&
-          git pull origin $BRANCH &&
-          sudo npm i &&
-          sudo npm start
+          echo $FIRST_NAME
+          echo $LAST_NAME
