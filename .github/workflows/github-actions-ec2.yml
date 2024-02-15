@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
-          scp -i private_key.pem -r ./* $USER_NAME@$HOSTNAME:/home/ubuntu
+          scp -i private_key.pem -r ./* $USER_NAME@$HOSTNAME
           ssh -i private_key.pem $USER_NAME@$HOSTNAME
           cd ./$PROJECT_NAME &&
           git checkout $BRANCH &&
